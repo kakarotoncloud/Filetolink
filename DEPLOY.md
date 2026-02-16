@@ -198,13 +198,21 @@ git push heroku main
 
 **This will take 2-3 minutes.** You'll see a lot of text scrolling - that's normal. Wait until it says "deployed" or "Verifying deploy... done."
 
-### Step 10: Start the Bot
+### Step 10: Set Up the Database
+
+```
+heroku run npm run db:push --app your-app-name
+```
+
+This creates the necessary tables in your database. You should see "Changes applied" in the output.
+
+### Step 11: Start the Bot
 
 ```
 heroku ps:scale web=1 --app your-app-name
 ```
 
-### Step 11: Check If It's Working
+### Step 12: Check If It's Working
 
 ```
 heroku logs --tail --app your-app-name
@@ -217,7 +225,7 @@ Look for these lines in the output:
 
 **Press Ctrl+C to stop watching logs.**
 
-### Step 12: Test Your Bot
+### Step 13: Test Your Bot
 
 1. Open Telegram and find your bot (search for the username you created with BotFather)
 2. Send it any file (photo, video, document, etc.)
